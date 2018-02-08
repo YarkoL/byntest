@@ -26,7 +26,7 @@ var room = "";
 
 function open() {
 	room = roomInput.value;
-	uri = "wss://" + uriInput.value  + ":1277";
+	uri = "wss://" + uriInput.value  + ":12777";
 	console.log("opened room " + room);
 	peer = new WebRtcNetwork(new SignalingConfig(new WebsocketNetwork(uri)), conf);
 	peer.StartServer(room);
