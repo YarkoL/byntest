@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>BYN Sigserver tester</title>
+	<link rel="stylesheet" href="main.css" />
+</head>
+<body>
+	<div id="explanation">because-why-nots signaling server tester.</div>
+	<div>
+		<input type="text" id="uriInput" placeholder="Enter sigserver URI here"><hr/>
+		<input type="text" id="roomInput" placeholder="Room name">
+		<button id="openButton" >Open room</button> 
+		<button id="joinButton" >Join room</button>
+		<input type="text" id="chatInput" placeholder="Say something">
+		<button id="sendButton" disabled="disabled">Send</button><br>
+		<button id="shutdownButton" disabled="disabled">Shut down</button><br>
+		<div id='chat'></div>
+	</div> 
+		<script src="webrtcnetwork.js"></script>
+		<script src="netevent.js"></script>
+		<script src="main.js"></script>
+</body>
+</html>
