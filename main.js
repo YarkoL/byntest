@@ -40,6 +40,7 @@ function open() {
 function join() {
 	room = roomInput.value;
 	console.log("joined room " + room);
+	uri = "wss://" + uriInput.value  + ":12777";
 	peer = new WebRtcNetwork(new SignalingConfig(new WebsocketNetwork(uri)), conf);
 	peer.Connect(room)
 	openButton.disabled = true;
