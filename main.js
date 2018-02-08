@@ -56,7 +56,7 @@ function listenForEvents() {
 	        console.log("inc: " + event.toString());
 	        if (event.Type == NetEventType.ServerInitialized) {
 	            printMessage("Opened room  " + event.Info, "system");
-	        } else if (event.Type == NetEventType.ServerInitFailed) {addMessage
+	        } else if (event.Type == NetEventType.ServerInitFailed) {
 	            console.error("server start failed")
 	        } else if (event.Type == NetEventType.NewConnection) {
 	        	id = event.ConnectionId;
