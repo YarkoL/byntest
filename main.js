@@ -21,6 +21,7 @@ var isServer = false;
 var peer = null; //this user
 var id = null; //the other one
 var room = "";
+var timer = null;
 
 //printMessage("Welcome!", "system");
 
@@ -50,7 +51,7 @@ function join() {
 }
 
 function listenForEvents() {
-	 setInterval(function() {
+	 timer = setInterval(function() {
 	    peer.Update();
 	    var event = null;
 	    while (event = peer.Dequeue()) {
@@ -66,7 +67,7 @@ function listenForEvents() {
 	        } else if (event.Type == NetEventType.Disconnected) {
 	            console.log("peer disconnected");event	 
 	        } else if (event.Type == NetEventType.ReliableMessageReceived) {
-	        	var msg = bufferToString(event.MessageData);
+	        	var msg = byteArrayToString(event.MessageData);
 	        	printMessage(msg, "other");
 	        } 
 	    }
@@ -78,7 +79,7 @@ function send() {
 	var message = chatInput.value;
 	printMessage(message, "me");
 	if (id) {
-		var arr = stringToBuffer(message);
+		var arr = stringToByteArray(message); 
 		peer.SendData(id, arr, true);
 	} else {
 		printMessage("Sorry, failed to send!", "system")
@@ -102,5 +103,6 @@ function shutdown() {
 	peer.Shutdown();
 	peer = null;
 	id = null;
+	clearInterval(timer);
 
 }

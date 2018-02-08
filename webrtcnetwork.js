@@ -975,6 +975,19 @@ function stringToBuffer(e) {
     return r
 }
 
+
+function byteArrayToString(arr) {
+  return String.fromCharCode.apply(String, arr);
+}
+
+function stringToByteArray(str) {
+    var bytes = [];
+    for (var i = 0; i < str.length; ++i) {
+        bytes.push(str.charCodeAt(i));
+    }
+    return new Uint8Array(bytes);
+} 
+
 var Queue = function() {
     function e() {
         this.mArr = new Array
